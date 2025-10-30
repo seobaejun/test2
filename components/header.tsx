@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold text-primary">누모</div>
+        <div className="text-2xl font-bold text-primary">부스트웹</div>
 
         <div className="hidden md:flex items-center gap-8">
           <a href="#work" className="text-foreground hover:text-primary transition">

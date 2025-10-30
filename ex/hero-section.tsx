@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
-import PulsingBorderShader from "./pulsing-border-shader"
+import PulsingBorderShader from "./components/pulsing-border-shader"
 import { ArrowRight, Sparkles } from "lucide-react"
 
-export default function Hero() {
+export default function Component() {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Background gradient */}
@@ -20,8 +20,9 @@ export default function Hero() {
 
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
+                Your personal{" "}
                 <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                  부스트웹
+                  agent
                 </span>
               </h1>
 
