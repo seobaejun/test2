@@ -1,33 +1,56 @@
+"use client"
+
+import { Calendar, Code, FileText, User, Clock } from "lucide-react"
+import { RadialOrbitalTimeline } from "@/components/ui/radial-orbital-timeline"
+
 export default function Services() {
-  const services = [
+  const timelineData = [
     {
-      number: "01",
+      id: 1,
       title: "웹 디자인",
-      description: "고객을 매료시키고 충성도 높은 고객으로 전환하는 아름답고 반응형 디자인.",
-      icon: "🎨",
+      date: "1단계",
+      content: "고객을 매료시키고 충성도 높은 고객으로 전환하는 아름답고 반응형 디자인을 제작합니다.",
+      category: "Design",
+      icon: FileText,
+      relatedIds: [2],
+      energy: 100,
     },
     {
-      number: "02",
+      id: 2,
       title: "웹 개발",
-      description: "최신 기술과 모범 사례로 구축한 견고하고 확장 가능한 웹 애플리케이션.",
-      icon: "💻",
+      date: "2단계",
+      content: "최신 기술과 모범 사례로 구축한 견고하고 확장 가능한 웹 애플리케이션을 개발합니다.",
+      category: "Development",
+      icon: Code,
+      relatedIds: [1, 3],
+      energy: 90,
     },
     {
-      number: "03",
+      id: 3,
       title: "디지털 전략",
-      description: "디지털 존재감을 비즈니스 목표와 일치시키는 전략 계획 및 컨설팅.",
-      icon: "📊",
+      date: "3단계",
+      content: "디지털 존재감을 비즈니스 목표와 일치시키는 전략 계획 및 컨설팅을 제공합니다.",
+      category: "Strategy",
+      icon: Calendar,
+      relatedIds: [2, 4],
+      energy: 60,
     },
     {
-      number: "04",
+      id: 4,
       title: "브랜드 아이덴티티",
-      description: "강력하고 기억에 남는 시장 입지를 확립하는 포괄적인 브랜딩 솔루션.",
-      icon: "🎯",
+      date: "4단계",
+      content: "강력하고 기억에 남는 시장 입지를 확립하는 포괄적인 브랜딩 솔루션을 구축합니다.",
+      category: "Branding",
+      icon: User,
+      relatedIds: [3],
+      energy: 30,
     },
   ]
 
   return (
     <section id="story" className="py-20 bg-black text-white overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -37,47 +60,13 @@ export default function Services() {
             </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            창의성, 전략, 기술을 결합하여 뛰어난 결과를 제공합니다.
+            창의성, 전략, 기술을 결합하여 뛰어난 결과를 제공하는 우리의 작업 프로세스입니다.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={service.number}
-              className="group relative p-8 bg-gray-800 border-2 border-gray-600 rounded-lg hover:border-purple-500 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{
-                animationDelay: `${index * 0.1}s`
-              }}
-            >
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-2xl">
-                    {service.icon}
-                  </div>
-                  <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                    {service.number}
-                  </div>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors duration-300">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Floating elements */}
-              <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 w-1 h-1 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-          ))}
+        {/* Timeline Component */}
+        <div className="flex justify-center">
+          <RadialOrbitalTimeline data={timelineData} className="w-full max-w-4xl" />
         </div>
 
       </div>
